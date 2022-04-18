@@ -40,7 +40,7 @@
 
     <div class="row py-5">
       <table class="table table-bordered">
-        <thead>
+        <thead class="bg-light">
           <tr>
             <th scope="col">郵便番号</th>
             <th scope="col">住所</th>
@@ -51,13 +51,13 @@
         <tbody>
           <%@deliveries.each do |delivery|%>
           <tr>
-            <th><%=delivery.postcode%></th>
-            <th><%=delivery.address%></th>
-            <th><%=delivery.address_name%></th>
-            <th>
+            <td><%=delivery.postcode%></td>
+            <td><%=delivery.address%></td>
+            <td><%=delivery.address_name%></td>
+            <td>
               <%=link_to"編集する",edit_delivery_path(delivery.id),class:"btn btn-success mr-2"%>
               <%=link_to"削除する",delivery_path(delivery.id),method: :delete,"data-confirm"=>"本当に消しますか？",class:"btn btn-danger"%>
-            </th>
+            </td>
           </tr>
         </tbody>
         <%end%>

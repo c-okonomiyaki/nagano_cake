@@ -17,5 +17,11 @@ main {
 .nav-link{
     outline:2px solid #ff7f00;
 }
+.table > thead > tr > th{
+    border:1px solid black;
+}
+.table > tbody > tr > td{
+    border:1px solid black;
+}
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
