@@ -1,6 +1,5 @@
 <p>TOPページ</p>
 
-
 <div id="photo">
   <div id="theTarget">
     <div class="image1"></div>
@@ -8,5 +7,22 @@
     <div class="image3"></div>
     <div class="image4"></div>
     <div class="image5"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <h2>新着商品</h2>
+      <div class="item-container">
+        <% @random.each do |item| %>
+        <%= image_tag @item.get_image ,size:"150x100"%>
+        <%= @item.name %>
+        <%= @item.price %>
+      <% end %>
+      </div>
+      <div class="col-xs-12">
+			<%= link_to "すべての商品を見る>", items_path, class: "btn-link  pull-right" %>
+			</div>
+    </div>
   </div>
 </div>
