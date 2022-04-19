@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :customers do
-    resource :customers,only:[:show,:edit,:update,:withdrawal,:out]
+    resource :customers,only:[:show,:withdrawal,:out]
+    get 'customers/customers/edit' => 'customers#edit'
+    patch 'customers/customers/:id' => 'customers#update',as: :mypage
     root :to => "homes#top"
     get "about"=>"homes#about"
     resources :items,only:[:index,:show]

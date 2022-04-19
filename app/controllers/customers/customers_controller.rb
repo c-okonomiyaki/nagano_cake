@@ -1,15 +1,29 @@
 class Customers::CustomersController < ApplicationController
   def show
-<<<<<<< HEAD
     @customer = current_customer
-    
-=======
->>>>>>> 7b7cd32db80680e48588a171d0b6432165fdcb95
+
   end
 
   def edit
+    @customer = current_customer
+  end
+
+  def update
+    @customer = current_customer
+    if @customer.update(customer_params)
+      redirect_to customers_path
+    else
+      render customers/customers/edit
+    end
   end
 
   def withdrawal
   end
+
+  private
+
+  def customer_params
+    params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:postcode,:address,:call_number,:email)
+  end
+
 end
