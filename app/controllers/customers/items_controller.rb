@@ -1,10 +1,9 @@
 class Customers::ItemsController < ApplicationController
   def index
-    @item = Item.new
-    @items = Item.all
+    @items = Item.page(params[:page]).per(10)
   end
 
   def show
-    @item = Item.find([:id])
+    @item = Item.find(params[:id])
   end
 end
