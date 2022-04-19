@@ -1,2 +1,88 @@
-<h1>Customers::Customers#edit</h1>
-<p>Find me in app/views/customers/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-11">
+      <h5 class="pb-4 mt-5">
+        <span class="midashi px-3">会員情報編集</span>
+      </h5>
+    </div>
+  </div>
+
+
+
+    <%= form_with model:@customer, url: mypage_path(@customer),local:true do |f| %>
+      <div class="form-group row">
+        <div class="col-4">
+          <%= f.label :氏名 %>
+        </div>
+        <div class="col-5">
+          <%= f.text_field :last_name %>
+        </div>
+        <div class="col-3">
+          <%= f.text_field :first_name %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-4">
+          <%= f.label :フリガナ %>
+        </div>
+        <div class="col-5">
+          <%= f.text_field :last_name_kana %>
+        </div>
+        <div class="col-3">
+          <%= f.text_field :first_name_kana %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-4">
+          <%= f.label :郵便番号 %>
+        </div>
+        <div class="col-3">
+          <%= f.text_field :postcode %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-4">
+          <%= f.label :住所 %>
+        </div>
+        <div class="col-3">
+          <%= f.text_field :address,size:60 %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-4">
+          <%= f.label :電話番号 %>
+        </div>
+        <div class="col-3">
+          <%= f.text_field :call_number %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-4">
+          <%= f.label :メールアドレス %>
+        </div>
+        <div class="col-3">
+          <%= f.email_field :email %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-4">
+        </div>
+        <div class="col-5">
+          <%= f.submit" 編集内容を保存 ",class:"btn btn-success" %>
+        </div>
+        <div class="col-3">
+          <%=link_to"退会する",'/withdrawal',class:"btn btn-danger" %>
+        </div>
+      </div>
+  <% end %>
+
+
+
+
+</div>
