@@ -72,7 +72,7 @@
             <%= f.label :会員ステータス%>
           </div>
           <div class="col-7">
-            <%= f.password_field :password%>
+            <%= f.radio_button :is_deleted, false%>有効  <%= f.radio_button :is_deleted, true%>退会
           </div>
         </div>
 
