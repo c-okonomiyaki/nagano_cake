@@ -1,2 +1,12 @@
-<h1>Customers::Items#index</h1>
-<p>Find me in app/views/customers/items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    </div>
+      <h2>商品一覧<span>(全<%= @item.total_count %>件)</span></h2>
+    </div>
+    <div class="clearfix item-box">
+      <% @random.each do |item| %>
+        <%= render "item_each", item: item %>
+	    <% end %>
+	   </div>
+	 <div class="text-center"><%= paginate(@items) %></div>
+</div>
