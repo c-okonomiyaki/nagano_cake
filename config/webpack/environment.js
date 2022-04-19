@@ -1,6 +1,8 @@
 const { environment } = require('@rails/webpacker')
 
 module.exports = environment
+<<<<<<< HEAD
+=======
 
 const webpack = require('webpack')
 environment.plugins.prepend(
@@ -11,3 +13,4 @@ environment.plugins.prepend(
     Popper: 'popper.js'
   })
 )
+>>>>>>> 7b7cd32db80680e48588a171d0b6432165fdcb95
