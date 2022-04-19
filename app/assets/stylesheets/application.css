@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "skippr";
+
 footer{
   position:absolute;
   bottom:0;
