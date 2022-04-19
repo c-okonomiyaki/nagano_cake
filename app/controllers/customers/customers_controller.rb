@@ -18,6 +18,10 @@ class Customers::CustomersController < ApplicationController
   end
 
   def withdrawal
+    @customer = current_customer
+  end
+  
+  def out
   end
 
   private
