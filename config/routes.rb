@@ -26,18 +26,18 @@ Rails.application.routes.draw do
     get 'customers/customers/edit' => 'customers#edit'
     patch 'customers/customers/:id' => 'customers#update',as: :mypage
     get 'customers/withdrawal' => 'customers#withdrawal'
-    delete 'customers/out' => 'customers#out'
-    
+    patch 'customers/out/:id' => 'customers#out',as: :out
+
     root :to => "homes#top"
     get "about"=>"homes#about"
     resources :items,only:[:index,:show]
     resources :carts,only:[:index,:update,:create,:destroy]
     delete 'carts/all_destory' => 'carts#out'
-    
+
     resources :orders,only:[:new,:confirm,:create,:thanx,:index,:show]
     get 'orders/confirm' => 'orders#confirm'
     get 'orders/thanx' => 'orders#thanx'
-    
+
     resources :deliveries,only:[:index,:create,:destroy,:edit,:update]
   end
 
