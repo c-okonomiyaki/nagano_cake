@@ -1,2 +1,47 @@
-<h1>Admins::Items#index</h1>
-<p>Find me in app/views/admins/items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-9">
+      <h5 class="my-4">
+        <span class="midashi px-3">商品一覧</span>
+      </h5>
+    </div>
+    <div class="col-2 my-auto">
+      <%=link_to(new_admins_item_path)do%><i class="fas fa-plus-circle" style="color:#ffa500;"></i><%end%>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table class="table">
+        <thead class="bg-light">
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%@items.each do |item|%>
+          <tr>
+            <td><%=item.id%></td>
+            <td style="color:black;">
+              <%=link_to item.item_name,admins_item_path(item.id)%>
+            </td>
+            <td><%=item.price%></td>
+            <td><%=@genre.genre_name%></td>
+            <%if item.is_active==true%>
+              <td class="text-success font-weight-bold">販売中</td>
+            <%else%>
+              <td class="text-muted font-weight-bold">販売停止中</td>
+            <%end%>
+          </tr>
+        </tbody>
+        <%end%>
+      </table>
+      <%= paginate @items%>
+    </div>
+  </div>
+</div>
