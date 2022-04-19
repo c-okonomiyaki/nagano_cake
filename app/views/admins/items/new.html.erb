@@ -1,3 +1,12 @@
+<%if @item.errors.any?%>
+  <h3><%=@item.errors.count%>error prohibited this obj from being saved:</h3>
+  <ul>
+    <%@item.errors.full_messages.each do |message|%>
+    <li><%=message%></li>
+    <%end%>
+  </ul>
+  <%end%>
+
 <div class="container">
   <div class="row">
     <div class="col-2"></div>
@@ -11,30 +20,66 @@
   </div>
 
   <div class="row">
-    <div class="mx-auto pb-5">
-      <%= form_with model:@item,local:true do |f| %>
+    <div class="col-6 mx-auto pb-5">
+      <%= form_with model:@item,url:admins_items_path,method: :post,local:true do |f| %>
         <div class="form-group row">
-          <div class="col-5">
-            <%= f.label :メールアドレス %>
+          <div class="col-4">
+            <%= f.label :商品画像 ,class:"pl-5"%>
           </div>
-          <div class="col-7">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" ,:placeholder=>"sample@example.com",size:40%>
+          <div class="col-8">
+            <%= f.file_field :item_image%>
           </div>
         </div>
 
         <div class="form-group row">
-          <div class="col-5">
-            <%= f.label :パスワード %>
+          <div class="col-4">
+            <%= f.label :商品名,class:"pl-5"%>
           </div>
-          <div class="col-7">
-            <%= f.password_field :password, autocomplete: "current-password" ,size:40%>
+          <div class="col-8">
+            <%= f.text_field :item_name,:placeholder=>"商品名",size:30%>
           </div>
         </div>
 
         <div class="form-group row">
-          <div class="col-5"></div>
-          <div class="col-7">
-            <%= f.submit "  ログイン  ",class:"btn btn-primary"%>
+          <div class="col-4">
+            <%= f.label :商品説明,class:"pl-5"%>
+          </div>
+          <div class="col-8">
+            <%= f.text_area :introduction,:placeholder=>"ここに説明文を記述します",size:"30x5"%>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-4">
+            <%= f.label :ジャンル,class:"pl-5"%>
+          </div>
+          <div class="col-8">
+            <%= f.collection_select(:genre_id, @genres, :id, :ganre_name, {prompt: "--選択してください--"})%>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-4">
+            <%= f.label :税抜価格,class:"pl-5"%>
+          </div>
+          <div class="col-8">
+            <%= f.text_field :price,:placeholder=>"1000",size:30%>円
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-4">
+            <%= f.label :販売ステータス,class:"pl-5"%>
+          </div>
+          <div class="col-8">
+            <%= f.radio_button :is_active, true%>販売中  <%= f.radio_button :is_active, false%>販売停止中
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-4"></div>
+          <div class="col-8">
+            <%= f.submit "  新規登録  ",class:"btn btn-success"%>
           </div>
         </div>
       <% end %>
