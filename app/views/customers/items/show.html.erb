@@ -1,2 +1,19 @@
-<h1>Customers::Items#show</h1>
-<p>Find me in app/views/customers/items/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div>
+      <table class="table table-hover table-inverse">
+        <tbody>
+          <tr>
+            <td>
+              <%= image_tag @item.get_item_image(40,40) %><br/>
+            </td>
+            <td>
+              <span><%=@books.body%></span>
+            </td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
