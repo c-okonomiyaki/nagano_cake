@@ -24,7 +24,7 @@
       <%= form_with model:@item,url:admins_items_path,method: :post,local:true do |f| %>
         <div class="form-group row">
           <div class="col-4">
-            <%= f.label :商品画像 ,class:"pl-5"%>
+            <%= f.label :商品画像 ,class:"pl-3"%>
           </div>
           <div class="col-8">
             <%= f.file_field :item_image%>
@@ -33,7 +33,7 @@
 
         <div class="form-group row">
           <div class="col-4">
-            <%= f.label :商品名,class:"pl-5"%>
+            <%= f.label :商品名,class:"pl-3"%>
           </div>
           <div class="col-8">
             <%= f.text_field :item_name,:placeholder=>"商品名",size:30%>
@@ -42,7 +42,7 @@
 
         <div class="form-group row">
           <div class="col-4">
-            <%= f.label :商品説明,class:"pl-5"%>
+            <%= f.label :商品説明,class:"pl-3"%>
           </div>
           <div class="col-8">
             <%= f.text_area :introduction,:placeholder=>"ここに説明文を記述します",size:"30x5"%>
@@ -51,7 +51,7 @@
 
         <div class="form-group row">
           <div class="col-4">
-            <%= f.label :ジャンル,class:"pl-5"%>
+            <%= f.label :ジャンル,class:"pl-3"%>
           </div>
           <div class="col-8">
             <%= f.collection_select(:genre_id, @genres, :id, :ganre_name, {prompt: "--選択してください--"})%>
@@ -60,7 +60,7 @@
 
         <div class="form-group row">
           <div class="col-4">
-            <%= f.label :税抜価格,class:"pl-5"%>
+            <%= f.label :税抜価格,class:"pl-3"%>
           </div>
           <div class="col-8">
             <%= f.text_field :price,:placeholder=>"1000",size:30%>円
@@ -69,7 +69,7 @@
 
         <div class="form-group row">
           <div class="col-4">
-            <%= f.label :販売ステータス,class:"pl-5"%>
+            <%= f.label :販売ステータス,class:"pl-3"%>
           </div>
           <div class="col-8">
             <%= f.radio_button :is_active, true%>販売中  <%= f.radio_button :is_active, false%>販売停止中

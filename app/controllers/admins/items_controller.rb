@@ -14,7 +14,7 @@ class Admins::ItemsController < ApplicationController
 
   def update
     @item=Item.find(params[:id])
-    if @item.save
+    if @item.update(item_params)
       redirect_to admins_item_path(@item.id)
     else
       render "edit"

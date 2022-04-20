@@ -7,7 +7,7 @@
       </h5>
     </div>
     <div class="col-2 my-auto">
-      <%=link_to(new_admins_item_path)do%><i class="fas fa-plus-circle" style="color:#ffa500;"></i><%end%>
+      <%=link_to(new_admins_item_path)do%><i class="fas fa-plus-circle fa-2x" style="color:#ffa500;"></i><%end%>
     </div>
   </div>
 
@@ -27,11 +27,11 @@
           <%@items.each do |item|%>
           <tr>
             <td><%=item.id%></td>
-            <td style="color:black;">
+            <td style="text-decoration:underline;">
               <%=link_to item.item_name,admins_item_path(item.id)%>
             </td>
             <td><%=item.price.to_s(:delimited)%></td>
-            <td><%=item.genre.genre_name%></td>
+            <td><%#=item.genre.genre_name%><%=item.genre_id%></td>
             <%if item.is_active==true%>
               <td class="text-success font-weight-bold">販売中</td>
             <%else%>
