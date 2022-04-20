@@ -1,15 +1,16 @@
-<div class="card">
-  <%= link_to item_path(item.id), class: "btn-link" do %>
-    <%= image_tag item.get_item_image ,size:"180x130"%>
+<div class="item-container">
+    <%= link_to item_path(item.id), class: "btn-link" do %>
+    <div class="image-field">
+      <%= image_tag item.item_image ,size:"180x130"%>
+    </div>
     <p class="item-name">
       <%= item.item_name %>
     </p>
-  <% end %>
+    <% end %>
 
   <% if item.is_active == true %>
     <p>¥<%= item.price.to_s(:delimited) %></p>
   <% elsif item.is_active == false %>
     <p class="soldout">売り切れ中</p>
   <% end %>
-
 </div>
