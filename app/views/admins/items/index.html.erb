@@ -28,7 +28,7 @@
           <tr>
             <td><%=item.id%></td>
             <td style="text-decoration:underline;">
-              <%=link_to item.item_name,admins_item_path(item.id)%>
+              <%=link_to item.item_name,admins_item_path(item.id),class:"text-dark"%>
             </td>
             <td><%=item.price.to_s(:delimited)%></td>
             <td><%=item.genre.genre_name%></td>
@@ -41,7 +41,11 @@
         </tbody>
         <%end%>
       </table>
-      <%= paginate @items%>
+      <div class="row">
+        <div class="mx-auto" style="text-decoration:underline;">
+          <%= paginate @items%>
+        </div>
+      </div>
     </div>
   </div>
 </div>
