@@ -31,12 +31,12 @@ Rails.application.routes.draw do
     root :to => "homes#top"
     get "about"=>"homes#about"
     resources :items,only:[:index,:show]
-    delete 'carts/all_destory' => 'carts#out'
     resources :carts,only:[:index,:update,:create,:destroy]
-    
+    delete 'carts/all_destory' => 'carts#out'
+
+    resources :orders,only:[:new,:confirm,:create,:thanx,:index,:show]
     get 'orders/confirm' => 'orders#confirm'
     get 'orders/thanx' => 'orders#thanx'
-    resources :orders,only:[:new,:create,:index,:show]
 
     resources :deliveries,only:[:index,:create,:destroy,:edit,:update]
   end
