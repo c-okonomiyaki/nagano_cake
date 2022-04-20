@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     get "about"=>"homes#about"
     resources :items,only:[:index,:show]
     resources :carts,only:[:index,:update,:create,:destroy]
-    delete 'carts/all_destory' => 'carts#out'
+    delete 'carts/all_destory' => 'carts#all_destory',as: :all_destory
 
     resources :orders,only:[:new,:confirm,:create,:thanx,:index,:show]
     get 'orders/confirm' => 'orders#confirm'
