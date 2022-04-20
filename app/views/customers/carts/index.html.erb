@@ -1,2 +1,91 @@
-<h1>Customers::Carts#index</h1>
-<p>Find me in app/views/customers/carts/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-11">
+      <h5 class="pb-4 mt-5">
+        <span class="midashi px-3">ショッピングカート</span>
+      </h5>
+    </div>
+    <div class="col-1">
+      <%=link_to"カートを空にする",all_destory_path,method: :patch,class:"btn btn-danger px-4"%>
+    </div>
+  </div>
+  
+
+
+    <div class="row">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" class="bg-light font-weight-normal">商品名</th>
+            <th scope="col" class="bg-light font-weight-normal">単価(税込)</th>
+            <th scope="col" class="bg-light font-weight-normal">数量</th>
+            <th scope="col" class="bg-light font-weight-normal">小計</th>
+            <th scope="col" class="bg-light font-weight-normal"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%@items.each do |item|%>
+          <tr>
+            <td><%= item.item_name %></td>
+            <td><%= cart_item.item.with_tax_price %></td>
+            <td><%= cart_item.subtotal %></td>
+            <% @allprice +=  cart_item.subtotal %>
+            <td><%=item.price.to_s(:delimited)%></td>
+            <td><%=item.genre.genre_name%></td>
+            
+          </tr>
+        </tbody>
+        <%end%>
+        
+        
+        
+        <tbody>
+          <tr>
+            <td scope="col" class="bg-light">カナ</td>
+            <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+          </tr>
+          <tr>
+            <td scope="col" class="bg-light">郵便番号</td>
+            <td><%= @customer.postcode %></td>
+          </tr>
+          <tr>
+            <td scope="col" class="bg-light">住所</td>
+            <td><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <td scope="col" class="bg-light">電話番号</td>
+            <td><%= @customer.call_number %></td>
+          </tr>
+          <tr>
+            <td scope="col" class="bg-light">メールアドレス</td>
+            <td><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  <div class='row d-flex align-items-end form-group'>
+    <div class="col-4">
+      <h4>
+        <span class="px-3">配送先</span>
+      </h4>
+    </div>
+    <div class="col-4">
+      <%= link_to '  一覧を見る  ', deliveries_path,class:"btn btn-primary" %>
+    </div>
+
+  </div>
+
+  <div class='row d-flex align-items-end form-group'>
+    <div class="col-4">
+      <h4>
+        <span class="px-3">注文履歴</span>
+      </h4>
+    </div>
+    <div class="col-4">
+      <%= link_to '  一覧を見る  ', orders_path,class:"btn btn-primary" %>
+    </div>
+
+  </div>
+
+
+</div>
