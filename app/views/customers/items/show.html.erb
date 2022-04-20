@@ -15,6 +15,17 @@
             <tr>
                 <td class="col-6"><%=(@item.price*1.08).round%>(<%=@item.price%>)円</td>
             </tr>
+            <tr>
+                <td>
+                  <%= form_with model: @cart do |f| %>
+                  <%= f.hidden_field :item_id, :value => "@item" %>
+                  <%= f.select :quantity, *[1..10] %>
+                </td>
+                <td class="col-3">
+                <%= f.submit "カートに入れる" %>
+                <% end %>
+                </td>
+            </tr>
         </tbody>
       </table>
       </div>
