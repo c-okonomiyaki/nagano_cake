@@ -54,7 +54,7 @@
             <%= f.label :ジャンル,class:"pl-3"%>
           </div>
           <div class="col-8">
-            <%= f.collection_select(:genre_id, @genres, :id, :ganre_name, {prompt: "--選択してください--"})%>
+            <%= f.collection_select(:genre_id, @genres, :id, :genre_name, {prompt: "--選択してください--"})%>
           </div>
         </div>
 

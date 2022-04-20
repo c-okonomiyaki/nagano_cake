@@ -31,7 +31,7 @@
               <%=link_to item.item_name,admins_item_path(item.id)%>
             </td>
             <td><%=item.price.to_s(:delimited)%></td>
-            <td><%#=item.genre.genre_name%><%=item.genre_id%></td>
+            <td><%=item.genre.genre_name%></td>
             <%if item.is_active==true%>
               <td class="text-success font-weight-bold">販売中</td>
             <%else%>
