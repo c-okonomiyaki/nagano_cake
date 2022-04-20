@@ -1,12 +1,17 @@
-<div class="container">
-  <div class="row">
-    </div>
-      <h2>商品一覧<span>(全<%= @item.total_count %>件)</span></h2>
-    </div>
-    <div class="clearfix item-box">
-      <% @random.each do |item| %>
-        <%= render "item_each", item: item %>
-	    <% end %>
-	   </div>
-	 <div class="text-center"><%= paginate(@items) %></div>
-</div>
+<%= stylesheet_link_tag "customers/items", :media => "all" %>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+        <h2>商品一覧<span>全〇件</span></h2>
+      </div>
+        <div class="item-box">
+          <% @items.each do |item| %>
+            <%= render "item_each", item: item %>
+	        <% end %>
+	      </div>
+	    <div class="item-pagenate"><%= paginate(@items) %></div>
+	  </div>
+  </div>
+</body>

@@ -1,2 +1,33 @@
-<h1>Customers::Items#show</h1>
-<p>Find me in app/views/customers/items/show.html.erb</p>
+<div class="container">
+    <div class="row">
+      <div class="col-4 mx-auto">
+        <%=image_tag @item.get_item_image,size:"250x250"%>
+      </div>
+      <div class="col-8">
+      <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <td class="col-6"><%=@item.item_name%></td>
+            </tr>
+            <tr>
+                <td class="col-6"><%=@item.introduction%></td>
+            </tr>
+            <tr>
+                <td class="col-6"><%=(@item.price*1.08).round%>(<%=@item.price%>)円</td>
+            </tr>
+            <tr>
+                <td>
+                  <%= form_with model: @cart do |f| %>
+                  <%= f.hidden_field :item_id, :value => "@item" %>
+                  <%= f.select :quantity, *[1..10] %>
+                </td>
+                <td class="col-3">
+                <%= f.submit "カートに入れる" %>
+                <% end %>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+</div>

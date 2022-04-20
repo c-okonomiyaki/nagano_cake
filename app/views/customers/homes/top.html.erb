@@ -1,24 +1,27 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-			<div class ="top-image">
-				<img src="assets/image1.jpg">
-				<p>
-				  <span class="welcome">ようこそ ながのCakeへ！</span><br>
-				  このサイトは、ケーキ販売のECサイトになります。<br>
-				  会員でない方も商品の閲覧はできますが、<br>
-				  購入には会員登録が必要になります。<br>
-				</p>
-			</div>
-      <h2>新着商品</h2>
-      <div class="card-item-container">
-        <% @items.each do |item| %>
-          <%= render "item_each", item: @item %>
-        <% end %>
-      </div>
-      <div class="col-xs-12">
-			<%= link_to "すべての商品を見る>", items_path, class: "btn-link  pull-right" %>
+<%= stylesheet_link_tag "customers/homes", :media => "all" %>
+<body>
+  <div ="container">
+	  <div class="row">
+		  <div class="col-xs-12">
+			  <div class ="top-image">
+				  <img src="assets/image1.jpg">
+				  <p>
+				    <span class="welcome">ようこそ ながのCakeへ！</span><br>
+				    このサイトは、ケーキ販売のECサイトになります。<br>
+				    会員でない方も商品の閲覧はできますが、<br>
+				    購入には会員登録が必要になります。<br>
+				  </p>
+			  </div>
+        <h2 class="toppage">新着商品</h2>
+        <div class="card-item-container">
+          <% @items.each do |item| %>
+            <%= render "item_each", item: @item %>
+          <% end %>
+        </div>
+        <div class="tag">
+			    <%= link_to "すべての商品を見る>", items_path, class: "btn-link  pull-right" %>
+			  </div>
 			</div>
     </div>
   </div>
-</div>
+</body>
