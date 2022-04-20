@@ -23,8 +23,8 @@
           <%@customers.each do |customer|%>
           <tr>
             <td><%=customer.id%></td>
-            <td class="text-dark" style="text-decoration:underline;" >
-              <%=link_to customer.full_name,admins_customer_path(customer.id)%>
+            <td style="text-decoration:underline;" >
+              <%=link_to customer.full_name,admins_customer_path(customer.id),class:"text-dark"%>
             </td>
             <td><%=customer.email%></td>
             <%if customer.is_deleted==false%>
