@@ -1,33 +1,36 @@
 <div class="container">
-    <div class="row">
-      <div class="col-4 mx-auto">
-        <%=image_tag @item.get_item_image,size:"250x250"%>
-      </div>
-      <div class="col-8">
-      <table class="table table-borderless">
-        <tbody>
-            <tr>
-                <td class="col-6"><%=@item.item_name%></td>
-            </tr>
-            <tr>
-                <td class="col-6"><%=@item.introduction%></td>
-            </tr>
-            <tr>
-                <td class="col-6"><%=(@item.price*1.08).round%>(<%=@item.price%>)円</td>
-            </tr>
-            <tr>
-                <td>
-                  <%= form_with model: @cart do |f| %>
-                  <%= f.hidden_field :item_id, :value => "@item" %>
-                  <%= f.select :quantity, *[1..10] %>
-                </td>
-                <td class="col-3">
-                <%= f.submit "カートに入れる" %>
-                <% end %>
-                </td>
-            </tr>
-        </tbody>
-      </table>
-      </div>
+    <div class="row mt-5">
+        <div class="col-6">
+            <%=image_tag @item.get_item_image,size:"300x250"%>
+        </div>
+        <div class="col-6">
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                    <td colspan="2"><h3><b><%=@item.item_name%></b></h3></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><%=@item.introduction%></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h5 style="display:inline"><strong>￥<%=@item.price%></strong></h5><small>(税込)</small></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                      <%= form_with model: @cart do |f| %>
+                      <%= f.hidden_field :item_id, :value => @item.id %>
+                      <%= f.select :quantity, *[1..10],prompt:"個数選択" %>
+                    </td>
+                    <td>
+                      <%= f.submit "カートに入れる",class:"btn btn-success" %>
+                      <% end %>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
     </div>
 </div>
