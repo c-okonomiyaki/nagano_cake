@@ -8,7 +8,6 @@
 }
 .item-box {
     display: block;      /* インラインブロック要素にする */
-    background-color:  #ccc;
     width: 90%;
     text-align: center;
     margin: 50px;
@@ -18,7 +17,6 @@
 }
 .item-container{
     display: inline-block;
-    background-color: black;
     margin: 15px;
 }
 .item-name{
@@ -34,12 +32,8 @@
     position: sticky;
     text-align: center;
     bottom: 70px;
-    opacity: 0;         /* 初期値は透明にしておく */
+    opacity: 1;         /* 初期値は透明にしておく */
     transition: .5s;    /* 動くスピードを0.5秒に指定 */
     position: relative; /* 相対位置の設定 */
     top: 50px;
-}
-.active {
-    opacity: 1;         /* 透明度を元に戻す */
-    top: 0;             /* ずらしていた位置を戻すことで上に上がっているようにみえる */
 }

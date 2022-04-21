@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row mt-5">
-        <div class="col-6">
+        <div class="col-6 text-center">
             <%=image_tag @item.get_item_image,size:"300x250"%>
         </div>
         <div class="col-6">
@@ -15,7 +15,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><h5 style="display:inline"><strong>￥<%=@item.price%></strong></h5><small>(税込)</small></td>
+                    <td colspan="2"><h5 style="display:inline"><strong>￥<%=(@item.price*1.08).round.to_s(:delimited)%></strong></h5><small>(税込)</small></td>
                     <td></td>
                 </tr>
                 <tr>
