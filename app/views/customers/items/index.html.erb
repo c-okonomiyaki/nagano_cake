@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div>
-        <h2>商品一覧<span>全〇件</span></h2>
+        <h2>商品一覧<span class="total_count">(全<%= @items.total_count %>件)</span></h2>
       </div>
         <div class="item-box">
           <% @items.each do |item| %>

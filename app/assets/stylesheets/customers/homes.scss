@@ -47,3 +47,25 @@
     right: 50px;
     bottom: 70px;
   }
+  .item-box {
+    display: block;      /* インラインブロック要素にする */
+    width: 90%;
+    text-align: center;
+    margin: 50px;
+  }
+  .total_count{
+    font-size: 20px;
+  }
+  .item-container{
+    display: inline-block;
+    margin: 15px;
+  }
+  .item-name{
+    text-align: left;
+  }
+  .item-price{
+    text-align: left;
+  }
+  .soldout{
+    font-color: red;
+  }

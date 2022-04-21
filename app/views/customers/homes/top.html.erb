@@ -13,9 +13,10 @@
 				  </p>
 			  </div>
         <h2 class="toppage">新着商品</h2>
-        <div class="card-item-container">
+        <div class="item-box">
           <% @items.each do |item| %>
-            <%= render "item_each", item: @item %>
+            <%= render "customers/items/item_each", item: item %>
+
           <% end %>
         </div>
         <div class="tag">
