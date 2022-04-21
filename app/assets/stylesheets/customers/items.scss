@@ -6,11 +6,16 @@
     display: block;
     clear: both;
 }
+html {
+   height: 100%;
+   width: 100%;
+   font-size: 100%;
+}
 .item-box {
     display: block;      /* インラインブロック要素にする */
     width: 90%;
     text-align: center;
-    margin: 50px;
+    margin: 5rem;
 }
 .total_count{
     font-size: 20px;
