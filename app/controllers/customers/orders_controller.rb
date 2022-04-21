@@ -3,25 +3,41 @@ class Customers::OrdersController < ApplicationController
     @order=Order.new
   end
 
+  def create
+    @order=Order.new(order_params)
+    @order.customer_id=current_customer.id
+    @order.save
+    redirect_to orders_thanx_path
+  end
+
   def confirm
     @order=Order.new(order_params)
     if params[:order][:select_address]=="0"
-      @order.name=current_customer.name
+      @order.name=current_customer.first_name+current_customer.last_name
       @order.address=current_customer.address
       @order.postcode=current_customer.postcode
     elsif params[:order][:select_address]=="1"
-      @order.name=Delivery.find(params[:order][:delivery]).address_name
-      @order.address=Delivery.find(params[:order][:delivery]).address
-      @order.postcode=Delivery.find(params[:order][:delivery]).postcode
+      @order.name=Delivery.find(params[:order][:delivery_id]).address_name
+      @order.address=Delivery.find(params[:order][:delivery_id]).address
+      @order.postcode=Delivery.find(params[:order][:delivery_id]).postcode
     elsif params[:order][:select_address]=="2"
       @delivery=Delivery.new
       @delivery.address_name=params[:order][:name]
       @delivery.address=params[:order][:address]
       @delivery.postcode=params[:order][:postcode]
-      @delivery
-
+      @delivery.customer_id=current_customer.id
+      if @delivery.save
+        @order.name=@delivery.address_name
+        @order.address=@delivery.address
+        @order.postcode=@delivery.postcode
+      else
+        render "new"
+      end
+    end
+      @order_details=Orderdetails.new
+      @order_details=current_customer.
       @cart_items=Cart.where(customer_id:current_customer.id)
-      @total=0
+      @total=@cart_items.inject(0){ |sum, item| sum + item.subtotal }
   end
 
   def thanx
@@ -34,6 +50,8 @@ class Customers::OrdersController < ApplicationController
   def show
     @order=Order.find(params[:id])
     @order_details=@order.order_details
+    @cart_items=Cart.where(customer_id:current_customer.id)
+    @total=@cart_items.inject(0){ |sum, item| sum + item.subtotal }
   end
 
   private

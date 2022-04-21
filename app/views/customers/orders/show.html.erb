@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-1"></div>
         <h5 class="col-11 pb-4 mt-5">
-            <span class="midashi px-3">注文情報確認</span>
+            <span class="midashi px-3">注文履歴詳細</span>
         </h5>
     </div>
 
@@ -13,7 +13,7 @@
           <tbody>
             <tr>
                 <td>注文日</td>
-                <td><%=order.created_at.strftime("%Y/%m/%d")%></td>
+                <td><%=@order.created_at.strftime("%Y/%m/%d")%></td>
             </tr>
             <tr>
                 <td>配送先</td>
@@ -41,7 +41,7 @@
         <tbody>
             <tr>
                 <td>商品合計</td>
-                <td>800</td>
+                <td><%=@total.to_s(:delimited)%></td>
             </tr>
             <tr>
                 <td>配送料</td>
@@ -49,7 +49,7 @@
             </tr>
             <tr>
                 <td class="font-weight-bold">ご請求額</td>
-                <td><%=@order.claim.to_s(:delimited)%></td>
+                <td><%=(@total+800).to_s(:delimited)%></td>
             </tr>
         </tbody>
       </table>
@@ -71,9 +71,9 @@
           <%@order_details.each do |order_details|%>
           <tr>
             <td><%=order_detail.item.item_name%></td>
-            <td><%=(order_detail.item.price).to_s(:delimited)%></td>
+            <td><%=(order_detail.item.price).floor%></td>
             <td><%=order_detail.quantity%></td>
-            <td><%=(order_detail.item.price)*(order_detail.quantity)%></td>
+            <td><%=(order_detail.item.price).floor*(order_detail.quantity)%></td>
           </tr>
           <%end%>
         </tbody>
