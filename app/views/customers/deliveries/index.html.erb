@@ -1,3 +1,12 @@
+<%if @delivery.errors.any?%>
+  <h3><%=@delivery.errors.count%>error prohibited this obj from being saved:</h3>
+  <ul>
+    <%@delivery.errors.full_messages.each do |message|%>
+    <li><%=message%></li>
+    <%end%>
+  </ul>
+<%end%>
+
 <div class="container">
   <div class="row">
     <div class="col-1"></div>
@@ -8,7 +17,7 @@
     </div>
   </div>
 
-    <%= form_with model:@delivery,local:true do |f|%>
+    <%= form_with model:@delivery,url:deliveries_path,method: :post,local:true do |f|%>
       <div class="form-group row">
         <div class="col-3">
           <%=f.label :"郵便番号(ハイフンなし)"%>
@@ -42,10 +51,10 @@
       <table class="table table-bordered">
         <thead class="bg-light">
           <tr>
-            <th scope="col">郵便番号</th>
-            <th scope="col">住所</th>
-            <th scope="col">宛名</th>
-            <th scope="col"></th>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

@@ -38,7 +38,7 @@
         <tbody>
             <tr>
                 <td>送料</td>
-                <td>800</td>
+                <td><%=@order.postage%></td>
             </tr>
             <tr>
                 <td>商品合計</td>
@@ -46,7 +46,7 @@
             </tr>
             <tr>
                 <td>請求金額</td>
-                <td><%=(@total+800).to_s(:delimited)%></td>
+                <td><%=(@total+@order.postage).to_s(:delimited)%></td>
             </tr>
         </tbody>
       </table>
