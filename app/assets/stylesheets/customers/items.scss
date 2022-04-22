@@ -11,14 +11,22 @@ html {
    width: 100%;
    font-size: 100%;
 }
+.row{
+    margin-top: 3vh;
+}
+.toppage{
+    padding-left: 6vw;
+    font-size: 2rem;
+    margin-top: 5px;
+ }
 .item-box {
     display: block;      /* インラインブロック要素にする */
     width: 90%;
     text-align: center;
-    margin: 5rem;
+    margin: 10px auto;
 }
 .total_count{
-    font-size: 20px;
+    font-size: 1.2rem;
 }
 .item-container{
     display: inline-block;
@@ -26,19 +34,22 @@ html {
 }
 .item-name{
     text-align: left;
+    font-size: 1rem;
+    margin: 5px 0px;
 }
 .item-price{
     text-align: left;
+    font-size: 1rem;
 }
 .soldout{
-    font-color: red;
+    color: red;
+    font-size: 1rem;
 }
 .item-pagenate{
-    position: sticky;
+	margin: 0 auto;
+}
+.pagination {
+    display: flex;
+    gap: 0.3rem;
     text-align: center;
-    bottom: 70px;
-    opacity: 1;         /* 初期値は透明にしておく */
-    transition: .5s;    /* 動くスピードを0.5秒に指定 */
-    position: relative; /* 相対位置の設定 */
-    top: 50px;
 }

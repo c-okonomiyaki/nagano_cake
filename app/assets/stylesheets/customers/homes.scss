@@ -42,9 +42,9 @@ html {
     font-size: 2rem;
   }
   .tag{
-    position: fixed;
-    right: 3vw;
-    bottom: 6vw;
+    text-align: right;
+    margin-right: 4vw;
+    margin-bottom: 2vw;
     font-size: 1rem;
   }
   .item-box {
@@ -68,6 +68,7 @@ html {
   .item-price{
     text-align: left;
     font-size: 1rem;
+    margin-bottom: 0;
   }
   .soldout{
     color: red;
