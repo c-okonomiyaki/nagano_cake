@@ -7,8 +7,8 @@ class Customers::DeliveriesController < ApplicationController
 
   def create
     @delivery=Delivery.new(delivery_params)
-    @derivery.customer_id=current_customer.id
-    if @delivery.save
+    #@derivery.customer_id=current_customer.id
+    if @delivery.save!
       redirect_to request.referer
     else
       redirect_to request.referer
