@@ -7,7 +7,6 @@ class Customers::OrdersController < ApplicationController
     @order=Order.new(order_params)
     @order.customer_id=current_customer.id
     @order.save
-    #@order_details=@order.order_details
     @cart_items=current_customer.carts.all
       @cart_items.each do |cart_item|
         @order_details=@order.order_details.new
@@ -23,6 +22,7 @@ class Customers::OrdersController < ApplicationController
 
   def confirm
     @order=Order.new(order_params)
+    @order.postage=800
     if params[:order][:select_address]=="0"
       @order.name=current_customer.last_name+current_customer.first_name
       @order.address=current_customer.address
@@ -58,9 +58,10 @@ class Customers::OrdersController < ApplicationController
 
   def show
     @order=Order.find(params[:id])
+    @order.postage=800
     @order_details=@order.order_details
-    @cart_items=Cart.where(customer_id:current_customer.id)
-    @total=@cart_items.inject(0){ |sum, item| sum + item.subtotal }
+    @subtotal=@order_details.map{|order_detail|order_detail.tax_price*order_detail.quantity}
+    @total=@subtotal.sum
   end
 
   private
