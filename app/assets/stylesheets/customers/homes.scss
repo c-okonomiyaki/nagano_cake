@@ -1,3 +1,76 @@
 // Place all the styles related to the customers/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+
+.clearfix::after {
+   content: "";
+   display: block;
+   clear: both;
+}
+html {
+   height: 100%;
+   width: 100%;
+   font-size: 100%;
+}
+.top-image {
+  position: relative;
+  margin: 25px auto;
+  width: 100%;
+  text-align: center;
+ }
+ .top-image img{
+   width: 40%;
+ }
+ .top-image p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+    color: black;
+    background-color: rgba( 192, 192, 192, 0.55 );
+    font-size: 1.4vw;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    text-align: center;
+    line-height: 1.5;
+    padding: 20px 15px;
+  }
+  .toppage{
+    padding-left: 20vw;
+    font-size: 2rem;
+  }
+  .tag{
+    text-align: right;
+    margin-right: 4vw;
+    margin-bottom: 2vw;
+    font-size: 1rem;
+  }
+  .item-box {
+    display: block;      /* インラインブロック要素にする */
+    width: 90%;
+    text-align: center;
+    margin: 10px auto;
+  }
+  .total_count{
+    font-size: 20px;
+  }
+  .item-container{
+    display: inline-block;
+    margin: 15px;
+  }
+  .item-name{
+    text-align: left;
+    font-size: 1rem;
+    margin: 5px 0px;
+  }
+  .item-price{
+    text-align: left;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  .soldout{
+    color: red;
+    font-size: 1rem;
+  }

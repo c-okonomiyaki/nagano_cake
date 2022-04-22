@@ -17,5 +17,9 @@ main {
 .nav-link{
     outline:2px solid #ff7f00;
 }
+.list{
+    border:1px solid black;
+}
+
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';

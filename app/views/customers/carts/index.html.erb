@@ -1,2 +1,69 @@
-<h1>Customers::Carts#index</h1>
-<p>Find me in app/views/customers/carts/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h5 class="pb-4 mt-5">
+        <span class="midashi px-3">ショッピングカート</span>
+      </h5>
+    </div>
+    <div class="col-6">
+      <%=link_to"カートを空にする",all_destory_path,method: :destroy,class:"btn btn-danger px-4"%>
+    </div>
+  </div>
+
+
+
+    <div class="row">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" class="bg-light font-weight-normal">商品名</th>
+            <th scope="col" class="bg-light font-weight-normal">単価(税込)</th>
+            <th scope="col" class="bg-light font-weight-normal">数量</th>
+            <th scope="col" class="bg-light font-weight-normal">小計</th>
+            <th scope="col" class="bg-light font-weight-normal"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+          <tr>
+            <td><%= cart_item.item.item_name %></td>
+            <td><%= cart_item.item.with_tax_price %></td>
+
+            <td>
+              <%= form_with model:cart_item, url: cart_path(cart_item.id),local:true do |f| %>
+                <%= f.select :quantity, *[1..10] %>
+                <%= f.submit"変更",class:"btn btn-success" %>
+              <% end %>
+            </td>
+            <td><%= cart_item.subtotal %></td>
+            <%# @allprice +=  cart_item.subtotal %>
+            <td>
+              <%=link_to"削除する",cart_path(cart_item.id),method: :delete,class:"btn btn-danger"%>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+
+
+      </table>
+    </div>
+  <div class='row d-flex align-items-end form-group'>
+    <div class="col-4">
+      <%= link_to '買い物を続ける', items_path,class:"btn btn-primary" %>
+    </div>
+
+
+    <div class="col-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" class="bg-light font-weight-normal">合計金額</th>
+            <th class="font-weight-normal"><%= @total %></th>
+          </tr>
+        </thead>
+
+      </table>
+    </div>
+
+
+</div>

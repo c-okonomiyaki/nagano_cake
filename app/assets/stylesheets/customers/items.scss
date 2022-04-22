@@ -1,3 +1,55 @@
 // Place all the styles related to the customers/items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+html {
+   height: 100%;
+   width: 100%;
+   font-size: 100%;
+}
+.row{
+    margin-top: 3vh;
+}
+.toppage{
+    padding-left: 6vw;
+    font-size: 2rem;
+    margin-top: 5px;
+ }
+.item-box {
+    display: block;      /* インラインブロック要素にする */
+    width: 90%;
+    text-align: center;
+    margin: 10px auto;
+}
+.total_count{
+    font-size: 1.2rem;
+}
+.item-container{
+    display: inline-block;
+    margin: 15px;
+}
+.item-name{
+    text-align: left;
+    font-size: 1rem;
+    margin: 5px 0px;
+}
+.item-price{
+    text-align: left;
+    font-size: 1rem;
+}
+.soldout{
+    color: red;
+    font-size: 1rem;
+}
+.item-pagenate{
+	margin: 0 auto;
+}
+.pagination {
+    display: flex;
+    gap: 0.3rem;
+    text-align: center;
+}
