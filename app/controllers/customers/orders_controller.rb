@@ -33,6 +33,9 @@ class Customers::OrdersController < ApplicationController
       @order.name=Delivery.find(params[:order][:delivery_id]).address_name
       @order.address=Delivery.find(params[:order][:delivery_id]).address
       @order.postcode=Delivery.find(params[:order][:delivery_id]).postcode
+      if Delivery.find(params[:order][:delivery_id]).nil?
+        render "new"
+      end
     elsif params[:order][:select_address]=="2"
       @delivery=Delivery.new
       @delivery.address_name=params[:order][:name]

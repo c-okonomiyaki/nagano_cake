@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row mt-5">
-        <div class="col-3 text-center">
+        <div class="col-6 text-center">
             <%=image_tag @item.get_item_image,size:"350x250"%>
         </div>
         <div class="col-6">
@@ -25,7 +25,11 @@
                             <%= f.select :quantity, *[1..10],prompt:"個数選択" %>
                         </td>
                         <td>
+                            <%if @item.is_active==true%>
                             <%= f.submit "カートに入れる",class:"btn btn-success" %>
+                            <%else%>
+                            <p>この商品は売り切れです。</p>
+                            <%end%>
                         </td>
                     </tr>
                 </tbody>
