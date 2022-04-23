@@ -31,7 +31,7 @@
             <%= f.label :お届け先,class:"pl-3 font-weight-bold"%><br>
           </div>
           <div class="col-9">
-            <%= f.radio_button :select_address,0%>
+            <%= f.radio_button :select_address,0,checked: true%>
             <%= f.label :select_address_0,"ご自身の住所"%><br>
             〒<%=current_customer.postcode%><%=current_customer.address%><br>
             <%=current_customer.last_name%><%=current_customer.first_name%>
