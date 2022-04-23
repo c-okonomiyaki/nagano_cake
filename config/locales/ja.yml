@@ -4,15 +4,18 @@ ja:
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
-
-
-
-# ja:
-#   activerecord:
-#   errors:
-#     messages:
-#       record_invalid: "バリデーションに失敗しました: %{errors}"
-
+        order_status:
+          wait_payment: "入金待ち"
+          confirm_payment: "入金確認"
+          making: "製作中"
+          preparing: "発送準備中"
+          shipped: "発送済み"
+      order_detail:
+        production_status:
+          impossible_production: "着手不可"
+          waiting_production: "製作待ち"
+          making: "製作中"
+          preparing: "製作完了"
 ja:
   activerecord:
     errors:
