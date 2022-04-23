@@ -1,14 +1,13 @@
 class Customers::DeliveriesController < ApplicationController
   def index
-    #@deliveries=Delivery.all
     @delivery=Delivery.new
     @deliveries=current_customer.deliveries
   end
 
   def create
     @delivery=Delivery.new(delivery_params)
-    #@derivery.customer_id=current_customer.id
-    if @delivery.save!
+    @delivery.customer_id=current_customer.id
+    if @delivery.save
       redirect_to request.referer
     else
       redirect_to request.referer
