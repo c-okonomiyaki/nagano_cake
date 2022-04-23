@@ -13,7 +13,9 @@ class Admins::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+    @order_details = @order.order_details
     if @order.update(order_params)
+      @order_details.update_all(production_status: 1) if @order.order_status == "confirm_payment"
       redirect_to request.referer
     else
       redirect_to request.referer
