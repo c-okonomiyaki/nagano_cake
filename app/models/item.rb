@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to :genre
   has_many :carts ,dependent: :destroy
   has_many :order_details ,dependent: :destroy
+  validates :item_name, :price, :introduction, :is_active, presence:true
 
   def get_item_image
     unless item_image.attached?
