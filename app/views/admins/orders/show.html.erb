@@ -9,6 +9,7 @@
   </div>
   <div class="row">
       <div class="col-9">
+        <%= form_with model: @order, url: admins_order_path, method: :patch do |f| %>
         <table>
           <tbody>
             <tr>
@@ -32,7 +33,6 @@
                 <td><%=@order.payment_method%></td>
             </tr>
             <tr>
-              <%= form_with model:@order, url: admins_order_path, method: :patch do |f| %>
                 <td>注文ステータス</td>
                 <td>
                   <%= f.select :order_status, Order.order_statuses_i18n.invert %>
@@ -40,12 +40,10 @@
                 </td>
               <% end %>
             </tr>
-
           </tbody>
         </table>
       </div>
     </div>
-
     <div class="row">
       <table class="col-8 table table-bordered">
         <thead>
@@ -64,12 +62,12 @@
             <td><%=(order_detail.item.price).to_s(:delimited)%></td>
             <td><%=order_detail.quantity%></td>
             <td><%= ((order_detail.item.price)*(order_detail.quantity)).to_s(:delimited)%></td>
+			      <%= form_with model: order_detail , url: admins_order_detail_path(order_detail.id) , method: :patch , local: true do |f| %>
 			      <td>
-			        <%= form_with model:order_detail , url: admins_order_detail_path(order_detail.id) , method: :patch , local: true do |f| %>
 			        <%= f.select :production_status, OrderDetail.production_statuses_i18n.invert %>
 			        <%= f.submit '更新' ,class: "btn btn-success" %>
+			        <% end %>
 			      </td>
-			      <% end %>
           </tr>
           <%end%>
         </tbody>

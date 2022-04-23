@@ -12,8 +12,8 @@ ja:
           shipped: "発送済み"
       order_detail:
         production_status:
-          wait_payment: "製作不可"
-          confirm_payment: "製作待ち"
+          impossible_production: "着手不可"
+          waiting_production: "製作待ち"
           making: "製作中"
           preparing: "製作完了"
 ja:

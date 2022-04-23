@@ -1,11 +1,14 @@
 class Admins::OrderDetailsController < ApplicationController
   def update
     @order_detail = OrderDetail.find(params[:id])
-    if @order_detail.update(order_detail_params)
-      redirect_to request.referer
-    else
-      redirect_to request.referer
+    @order_detail.update(order_detail_params)
+    if params[:order_detail][:production_status]=="製作中"
+       @order_detail.order.update(order_status: 2)
     end
+    if params[:order_detail][:production_status]=="製作完了"
+      @order_detail.order.update(order_status: 3)
+    end
+     redirect_to request.referer
   end
 
   private
