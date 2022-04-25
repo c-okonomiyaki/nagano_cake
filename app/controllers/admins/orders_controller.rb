@@ -1,4 +1,6 @@
 class Admins::OrdersController < ApplicationController
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery with: :exception
   def index
     @orders = Order.page(params[:page]).per(10)
   end

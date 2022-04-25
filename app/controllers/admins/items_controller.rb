@@ -1,5 +1,7 @@
 class Admins::ItemsController < ApplicationController
   before_action :authenticate_admin!
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery with: :exception
 
   def index
     @items=Item.page(params[:page])

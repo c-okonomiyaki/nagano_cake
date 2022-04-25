@@ -1,4 +1,7 @@
 class Admins::OrderDetailsController < ApplicationController
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery with: :exception
+  
   def update
     @order_detail = OrderDetail.find(params[:id])
     @order_detail.update(order_detail_params)
