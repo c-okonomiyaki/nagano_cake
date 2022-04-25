@@ -1,4 +1,7 @@
 class Customers::ItemsController < ApplicationController
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery with: :exception
+  
   def index
     @items = Item.where(is_active: true).page(params[:page]).per(8)
   end
