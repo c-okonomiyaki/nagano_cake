@@ -28,63 +28,51 @@
               <%if customer_signed_in?%>
               <li class="nav-item">
                 <%=link_to(customers_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">マイページ</span><%end%>
-                <br><div class="space1"></div>
               </li>
               <li class="nav-item">
                 <%=link_to(items_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">商品一覧</span><%end%>
-                <br><div class="space1"></div>
               </li>
               <li class="nav-item">
                 <%=link_to(carts_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">カート</span><%end%>
-                <br><div class="space"></div>
               </li>
               <li class="nav-item">
                 <%=link_to(destroy_customer_session_path,method: :delete,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">ログアウト</span><%end%>
-                <br><div class="space"><input name="search" placeholder="Search🔎"></div>
               </li>
               <%elsif admin_signed_in?%>
               <li class="nav-item">
                 <%=link_to(admins_items_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">商品一覧</span><%end%>
-                <br><div class="space1"></div>
               </li>
               <li class="nav-item">
                 <%=link_to(admins_customers_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">会員一覧</span><%end%>
-                <br><div class="space1"></div>
               </li>
               <li class="nav-item">
                 <%=link_to(admins_orders_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">注文履歴一覧</span><%end%>
-                <br><div class="space2"></div>
               </li>
               <li class="nav-item">
                 <%=link_to(admins_genres_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">ジャンル一覧</span><%end%>
-                <br><div class="space2"></div>
               </li>
               <li class="nav-item">
                 <%=link_to(destroy_admin_session_path,method: :delete,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">ログアウト</span><%end%>
-                <br><input name="search" placeholder="Search🔎">
               </li>
               <%else%>
               <li class="nav-item">
                 <%=link_to(about_path,class:"nav-link btn btn-light mx-3")do%><span style="color:#ff7f00;">About</span><%end%>
-                <br><div class="space"></div>
               </li>
               <li class="nav-item">
                 <%=link_to(items_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">商品一覧</span><%end%>
-                <br><div class="space1"></div>
               </li>
               <li class="nav-item">
                 <%=link_to(new_customer_registration_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">新規登録</span><%end%>
-                <br><div class="space1"></div>
               </li>
               <li class="nav-item">
                 <%=link_to(new_customer_session_path,class:"nav-link text-warning btn btn-light mx-3")do%><span style="color:#ff7f00;">ログイン</span><%end%>
-                <br><input name="search" placeholder="Search🔎">
               </li>
               <%end%>
             </ul>
           </div>
         </div>
       </nav>
+      <div class="search"><input name="search" placeholder="Search🔎"></div>
     </header>
     <main>
        <%= yield %>

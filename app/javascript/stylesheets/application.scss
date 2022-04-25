@@ -29,7 +29,10 @@ main {
 .space2{
     width: 150px;
 }
-
-
+.search{
+    text-align: right;
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
