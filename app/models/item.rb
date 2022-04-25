@@ -9,7 +9,6 @@ class Item < ApplicationRecord
     validates :item_name
     validates :price
     validates :introduction
-    validates :is_active
   end
 
   def get_item_image

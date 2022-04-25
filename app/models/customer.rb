@@ -12,7 +12,6 @@ class Customer < ApplicationRecord
     validates :postcode
     validates :address
     validates :email
-    validates :is_deleted
   end
 
   has_many :carts
