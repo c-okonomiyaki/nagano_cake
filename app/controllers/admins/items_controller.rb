@@ -35,6 +35,7 @@ class Admins::ItemsController < ApplicationController
     if @item.save
       redirect_to admins_items_path
     else
+      @genres=Genre.all
       render "new"
     end
   end
