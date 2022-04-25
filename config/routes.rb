@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :orders,only:[:index,:show,:update]
     resources :genres,only:[:index,:create,:edit,:update]
-    get 'admins' => 'admins#homes'
+    get 'admins' => 'homes#top'
     resources :items,only:[:index,:new,:create,:show,:edit,:update]
     resources :order_details,only:[:update]
     resources :customers,only:[:index,:show,:edit,:update]
