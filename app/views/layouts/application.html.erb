@@ -15,6 +15,11 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <a class="navbar-brand" href="/"><%=image_tag"nagano_cake2.jpg",size:"150x50"%> </a>
+          <div class="px-5">
+          <% if customer_signed_in? %>
+          ようこそ、<%= current_customer.full_name %>さん！
+          <%end%>
+          </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -67,6 +72,7 @@
           </div>
         </div>
       </nav>
+      <div class="search"><input name="search" placeholder="Search🔎"></div>
     </header>
     <main>
        <%= yield %>

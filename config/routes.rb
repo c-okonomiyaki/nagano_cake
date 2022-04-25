@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  #devise_for :admins
-  #devise_for :customers
-
   devise_for:customers,skip:[:passwords],controllers:{
     registrations:"customers/registrations",
     sessions:"customers/sessions"
@@ -34,8 +31,6 @@ Rails.application.routes.draw do
     post 'carts/all_destory' => 'carts#all_destory'
     resources :items,only:[:index,:show]
     resources :carts,only:[:index,:update,:create,:destroy]
-
-
 
     get 'orders/confirm' => 'orders#confirm'
     post 'orders/confirm' => 'orders#confirm'

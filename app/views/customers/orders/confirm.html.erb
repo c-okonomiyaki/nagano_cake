@@ -59,7 +59,10 @@
     </div>
     <div class="row">
       <div class="col-3">お届け先</div>
-      <div class="col-9"><%=@order.address%></div>
+      <div class="col-9">
+        〒<%=@order.postcode%><%=@order.address%><br>
+        <%=@order.name%>
+      </div>
     </div>
 
     <div class="row">
