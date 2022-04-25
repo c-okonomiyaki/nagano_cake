@@ -1,7 +1,7 @@
 class Customers::ItemsController < ApplicationController
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
-  
+
   def index
     @items = Item.where(is_active: true).page(params[:page]).per(8)
   end
@@ -18,7 +18,7 @@ class Customers::ItemsController < ApplicationController
     if @cart.save
       redirect_to item_path(@item)
     else
-
+      @item = Item.find(params[:id])
       render :show
     end
   end

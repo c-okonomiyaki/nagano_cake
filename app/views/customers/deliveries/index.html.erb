@@ -1,12 +1,4 @@
-<!--<%#if @delivery.errors.any?%>-->
-<!--  <h3><%#=@delivery.errors.count%>error prohibited this obj from being saved:</h3>-->
-<!--  <ul>-->
-<!--    <%#@delivery.errors.full_messages.each do |message|%>-->
-<!--    <li><%#=message%></li>-->
-<!--    <%#end%>-->
-<!--  </ul>-->
-<!--<%#end%>-->
-
+<%=render"layouts/errors",obj: @delivery%>
 <div class="container">
   <div class="row">
     <div class="col-1"></div>

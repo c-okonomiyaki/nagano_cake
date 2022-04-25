@@ -1,12 +1,4 @@
-<%if @item.errors.any?%>
-  <h3><%=@item.errors.count%>error prohibited this obj from being saved:</h3>
-  <ul>
-    <%@item.errors.full_messages.each do |message|%>
-    <li><%=message%></li>
-    <%end%>
-  </ul>
-  <%end%>
-
+<%=render"layouts/errors",obj: @item%>
 <div class="container">
   <div class="row">
     <div class="col-2"></div>

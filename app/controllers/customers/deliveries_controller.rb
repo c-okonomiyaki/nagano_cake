@@ -14,7 +14,8 @@ class Customers::DeliveriesController < ApplicationController
     if @delivery.save
       redirect_to request.referer
     else
-      redirect_to request.referer
+      @deliveries=current_customer.deliveries
+      render "index"
     end
   end
 
@@ -34,7 +35,7 @@ class Customers::DeliveriesController < ApplicationController
     if @delivery.update(delivery_params)
       redirect_to deliveries_path
     else
-      redirect_to request.referer
+      render "edit"
     end
   end
 
