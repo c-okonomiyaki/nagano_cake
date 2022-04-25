@@ -20,9 +20,9 @@
           ようこそ、<%= current_customer.full_name %>さん！
           <%end%>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+          <nav class="navbar-toggler" style="background-color:#ff7f50;" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
+          </nav>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <%if customer_signed_in?%>
