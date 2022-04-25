@@ -1,6 +1,5 @@
 class Admins::GenresController < ApplicationController
   before_action :authenticate_admin!
-  protect_from_forgery
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
   def index
