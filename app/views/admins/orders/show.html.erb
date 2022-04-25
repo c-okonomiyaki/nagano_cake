@@ -10,18 +10,18 @@
   <div class="row">
       <div class="col-9">
         <%= form_with model: @order, url: admins_order_path, method: :patch do |f| %>
-        <table>
+        <table height="250">
           <tbody>
             <tr>
-              <td>購入者</td>
+              <td width="200px"><b>購入者</b></td>
               <td><%= @order.name %></td>
             </tr>
             <tr>
-              <td>注文日</td>
+              <td><b>注文日</b></td>
               <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
             </tr>
             <tr>
-              <td>配送先</td>
+              <td valign="top"><b>配送先</b></td>
               <td>
                   〒<%=@order.postcode%><br>
                   <%=@order.address%><br>
@@ -29,11 +29,11 @@
               </td>
             </tr>
             <tr>
-                <td>支払い方法</td>
+                <td><b>支払い方法</b></td>
                 <td><%=@order.payment_method%></td>
             </tr>
             <tr>
-                <td>注文ステータス</td>
+                <td><b>注文ステータス</b></td>
                 <td>
                   <%= f.select :order_status, Order.order_statuses_i18n.invert %>
                   <%= f.submit "更新", class: "btn btn-success" %>
@@ -44,7 +44,7 @@
         </table>
       </div>
     </div>
-    <div class="row">
+    <div class="row mt-5">
       <table class="col-8 table table-bordered">
         <thead>
           <tr>
@@ -59,11 +59,11 @@
           <% @order_details.each do |order_detail|%>
           <tr>
             <td><%=order_detail.item.item_name%></td>
-            <td><%=(order_detail.item.price).to_s(:delimited)%></td>
+            <td><%=(order_detail.item.price*1.10).round.to_s(:delimited) %></td>
             <td><%=order_detail.quantity%></td>
-            <td><%= ((order_detail.item.price)*(order_detail.quantity)).to_s(:delimited)%></td>
-			      <%= form_with model: order_detail , url: admins_order_detail_path(order_detail.id) , method: :patch , local: true do |f| %>
+            <td><%= ((order_detail.item.price*1.10).round*(order_detail.quantity)).to_s(:delimited)%></td>
 			      <td>
+   	          <%= form_with model: order_detail , url: admins_order_detail_path(order_detail.id) , method: :patch , local: true do |f| %>
 			        <%= f.select :production_status, OrderDetail.production_statuses_i18n.invert %>
 			        <%= f.submit '更新' ,class: "btn btn-success" %>
 			        <% end %>
@@ -72,20 +72,27 @@
           <%end%>
         </tbody>
       </table>
-			<table class="col-3">
-				<tr>
-        	<th>商品合計</th>
-					<td>¥<%= @total.to_s(:delimited) %></td>
-				</tr>
-				<tr>
-					<th>送料</th>
-					<td>¥<%= @order.postage.to_s(:delimited) %></td>
-				</tr>
-				<tr>
-					<th>請求金額合計</th>
-					<td>¥<%= (@total+@order.postage).to_s(:delimited) %></td>
-				</tr>
-	    </table>
+			<div class="col-3 ml-3" style="margin-top:100px">
+			  <table align="right">
+			    <thead>
+			      <tr>
+			        <td width="150px"><b>商品合計</b></td>
+			        <td>¥<%= @total.to_s(:delimited) %></td>
+			      </tr>
+			      <tr>
+			        <td><b>送料</b></td>
+			        <td>¥<%= @order.postage.to_s(:delimited) %></td>
+			      </tr>
+			      <tr>
+			        <td><b>請求金額合計</b></td>
+			        <td><b>¥<%= (@total+@order.postage).to_s(:delimited) %></b></td>
+			      </tr>
+			    </thead>
+			  </table>
+      	<div></div>
+				<div></div>
+				<div></div>
+	    </div>
 	  </div>
   </div>
 </div>
