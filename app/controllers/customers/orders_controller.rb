@@ -1,4 +1,6 @@
 class Customers::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
   def new
     @order=Order.new
   end
@@ -28,9 +30,13 @@ class Customers::OrdersController < ApplicationController
       @order.address=current_customer.address
       @order.postcode=current_customer.postcode
     elsif params[:order][:select_address]=="1"
-      @order.name=Delivery.find(params[:order][:delivery_id]).address_name
-      @order.address=Delivery.find(params[:order][:delivery_id]).address
-      @order.postcode=Delivery.find(params[:order][:delivery_id]).postcode
+      if params[:order][:delivery_id]==""
+        redirect_to request.referer
+      else
+        @order.name=Delivery.find(params[:order][:delivery_id]).address_name
+        @order.address=Delivery.find(params[:order][:delivery_id]).address
+        @order.postcode=Delivery.find(params[:order][:delivery_id]).postcode
+      end
     elsif params[:order][:select_address]=="2"
       @delivery=Delivery.new
       @delivery.address_name=params[:order][:name]

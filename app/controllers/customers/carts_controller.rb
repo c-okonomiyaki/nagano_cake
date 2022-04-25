@@ -1,4 +1,6 @@
 class Customers::CartsController < ApplicationController
+  before_action :authenticate_customer!
+
   def index
     @cart_items = Cart.where(customer_id: current_customer)
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }

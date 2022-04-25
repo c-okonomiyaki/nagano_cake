@@ -35,7 +35,7 @@
                 <%= f.submit"変更",class:"btn btn-success" %>
               <% end %>
             </td>
-            <td><%= cart_item.subtotal %></td>
+            <td><%= cart_item.subtotal %>円</td>
             <%# @allprice +=  cart_item.subtotal %>
             <td>
               <%=link_to"削除する",cart_path(cart_item.id),method: :delete,class:"btn btn-danger"%>

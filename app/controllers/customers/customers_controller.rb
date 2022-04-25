@@ -1,4 +1,6 @@
 class Customers::CustomersController < ApplicationController
+  before_action :authenticate_customer!
+
   def show
     @customer = current_customer
 
@@ -13,7 +15,7 @@ class Customers::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to customers_path
     else
-      redirect_to request.referer
+      render "show"
     end
   end
 
