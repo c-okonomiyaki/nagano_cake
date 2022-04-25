@@ -20,6 +20,16 @@ main {
 .list{
     border:1px solid black;
 }
+.space{
+    width: 100px;
+}
+.space1{
+    width: 130px;
+}
+.space2{
+    width: 150px;
+}
+
 
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
