@@ -1,24 +1,86 @@
-# README
+DMM WEBCAMPのチーム開発で作成したアプリです。
+![nagano_cake](https://user-images.githubusercontent.com/100661771/165200389-077c149d-b48c-440b-b009-8399e5df3fe9.jpg)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# ながのCAKE
 
-Things you may want to cover:
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト。
+元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るようになった。
+InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管理機能を含んだ通販サイトを開設しようと思い至った。
 
-* Ruby version
+## アプリケーションの機能
 
-* System dependencies
+**会員側**
 
-* Configuration
+**1. ログイン・ログアウト機能**  
+ ・メールアドレスとパスワードでログイン可能。  
+**2. 商品情報表示機能**  
+ ・商品の一覧と、選択した商品の詳細情報を表示。  
+**3. カート機能**  
+ ・カートに商品を追加・個数の変更が可能。また、中身の編集や削除をすることができる。  
+**4. 注文機能**  
+ ・カートの中身を購入することが可能。  
+ ・支払い方法や配送先の設定が可能。  
+**5. 会員情報編集機能**  
+ ・登録している情報の編集が可能。  
+**6. 退会機能**  
+ ・退会手続きを行うことが可能。  
+**7. 配送先追加・編集機能**  
+ ・配送先の登録や編集が可能。  
+ ・登録している配送先を一覧で確認することができる。  
+**8. 注文履歴表示機能**  
+ ・過去の注文を一覧で確認することが可能。  
+ ・注文の詳細（商品や個数）の確認も可能。  
 
-* Database creation
+**管理者側**
 
-* Database initialization
+**1. ログイン・ログアウト機能**  
+ ・メールアドレスとパスワードでログイン可能。  
+**2. 商品情報表示・追加・編集機能**  
+ ・登録商品の一覧・詳細表示が可能。  
+ ・商品の登録情報の変更が可能。  
+ ・販売ステータスの変更が可能。  
+**3. 注文履歴表示機能**  
+ ・過去の注文一覧を表示可能。  
+ ・注文の詳細の確認が可能。注文ステータスと制作ステータスの変更が可能。  
+**4. ジャンル設定機能**  
+ ・商品ジャンルの追加と変更が可能。  
+**5. 会員情報表示・編集機能**  
+ ・会員情報を一覧で確認可能。  
+ ・会員の詳細を確認可能。会員情報の編集が可能。
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## 管理者用アカウントログイン方法
 
-* Deployment instructions
+* メールアドレス：admin@admin
+* パスワード：okonomiyaki
 
-* ...
+## 使用言語・環境
+
+* 使用言語  
+  HTML＆CSS  
+　Ruby  
+　JavaScript
+
+* フレームワーク  
+　Ruby on Rails(6.1.5)
+
+## 使用したGem
+
+* devise
+* kaminari
+* enum_help
+* pry-byebug
+* devise-i18n
+
+## 作成者
+
+* チーム名：お好み焼き
+
+* メンバー：あんちゃん  
+　　　　　  ともきち  
+　　　　　  ゆきみ  
+
+## 開発期間
+
+2022/4/13〜2022/4/28
+
