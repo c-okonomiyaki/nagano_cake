@@ -11,6 +11,7 @@ class Customer < ApplicationRecord
     validates :last_name_kana
     validates :postcode
     validates :address
+    validates :call_number
     validates :email
   end
 
