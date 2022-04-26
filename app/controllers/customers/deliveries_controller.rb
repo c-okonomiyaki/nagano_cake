@@ -12,7 +12,7 @@ class Customers::DeliveriesController < ApplicationController
     @delivery=Delivery.new(delivery_params)
     @delivery.customer_id=current_customer.id
     if @delivery.save
-      redirect_to request.referer
+      redirect_to request.referer ,notice: "配送先を登録しました"
     else
       @deliveries=current_customer.deliveries
       render "index"
@@ -22,7 +22,7 @@ class Customers::DeliveriesController < ApplicationController
   def destroy
     @delivery=Delivery.find(params[:id])
     @delivery.destroy
-    redirect_to request.referer
+    redirect_to request.referer ,notice: "配送先を削除しました"
   end
 
 
@@ -33,7 +33,7 @@ class Customers::DeliveriesController < ApplicationController
   def update
     @delivery=Delivery.find(params[:id])
     if @delivery.update(delivery_params)
-      redirect_to deliveries_path
+      redirect_to deliveries_path ,notice: "配送先を更新しました"
     else
       render "edit"
     end
