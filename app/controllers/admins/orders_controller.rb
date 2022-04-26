@@ -19,7 +19,7 @@ class Admins::OrdersController < ApplicationController
     @order.update(order_params)
     if @order.order_status=1
        @order_details.update(production_status:1)
-     redirect_to request.referer
+     redirect_to request.referer, notice: "注文ステータスを更新しました"
     end
   end
 

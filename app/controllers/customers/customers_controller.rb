@@ -15,7 +15,7 @@ class Customers::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
-      redirect_to customers_path
+      redirect_to customers_path ,notice: "登録情報を更新しました"
     else
       render "show"
     end
@@ -29,7 +29,7 @@ class Customers::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session
-    redirect_to root_path
+    redirect_to root_path ,notice: "アカウントを削除しました"
   end
 
   private
