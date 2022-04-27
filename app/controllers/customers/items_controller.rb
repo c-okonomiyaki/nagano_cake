@@ -1,7 +1,36 @@
 class Customers::ItemsController < ApplicationController
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  protect_from_forgery with: :exception
+
   def index
   end
 
   def show
+<<<<<<< HEAD
+    @item = Item.find(params[:id])
+    @cart = Cart.new
+  end
+
+  def create
+    @cart = Cart.new(cart_params)
+    @cart.customer_id = current_customer.id
+    # @cart.item_id = @item.id
+    if @cart.save
+      redirect_to item_path(@item)
+    else
+      @item = Item.find(params[:id])
+      render :show
+    end
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:item_image,:item_name,:price,:introduction,:is_active,:genre_id)
+  end
+
+  def cart_params
+      params.require(:cart).permit(:item_id, :quantity)
+=======
+>>>>>>> main
   end
 end

@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -130,3 +132,4 @@ ActiveRecord::Schema.define(version: 2022_04_17_061839) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end
+>>>>>>> main
