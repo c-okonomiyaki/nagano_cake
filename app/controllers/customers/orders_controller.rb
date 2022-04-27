@@ -33,7 +33,7 @@ class Customers::OrdersController < ApplicationController
       @order.postcode=current_customer.postcode
     elsif params[:order][:select_address]=="1"
       if params[:order][:delivery_id]==""
-        redirect_to request.referer
+        redirect_to carts_path
       else
         @order.name=Delivery.find(params[:order][:delivery_id]).address_name
         @order.address=Delivery.find(params[:order][:delivery_id]).address
@@ -50,7 +50,7 @@ class Customers::OrdersController < ApplicationController
         @order.address=@delivery.address
         @order.postcode=@delivery.postcode
       else
-        render "new"
+        redirect_to carts_path
       end
     end
       @cart_items=Cart.where(customer_id:current_customer.id)
