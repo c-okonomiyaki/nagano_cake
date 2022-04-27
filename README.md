@@ -58,8 +58,8 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 
 * 使用言語  
   HTML＆CSS  
-　Ruby  
-　JavaScript
+Ruby  
+JavaScript
 
 * フレームワーク  
 　Ruby on Rails(6.1.5)
@@ -77,8 +77,8 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 * チーム名：お好み焼き
 
 * メンバー：あんちゃん  
-　　　　　  ともきち  
-　　　　　  ゆきみ  
+　　　　　 ともきち  
+　　　　　 ゆきみ  
 
 ## 開発期間
 
