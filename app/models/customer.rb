@@ -18,6 +18,7 @@ class Customer < ApplicationRecord
   has_many :carts
   has_many :orders
   has_many :deliveries
+  has_many :items,through: :carts
 
   def full_name
     self.last_name + " " + self.first_name

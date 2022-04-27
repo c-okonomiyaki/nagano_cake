@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   has_many :order_details
   belongs_to :customer
+  has_many :items, through: :order_details
 
   with_options presence: true do
     validates :postcode
