@@ -17,10 +17,13 @@ class Admins::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order_details = @order.order_details
     @order.update(order_params)
-    if @order.order_status=1
+    if params[:order][:order_status]=="入金確認"
        @order_details.update(production_status:1)
-     redirect_to request.referer, notice: "注文ステータスを更新しました"
     end
+    if params[:order][:order_status]=="発送済み"
+      @order_details.update(production_status:3)
+    end
+     redirect_to request.referer, notice: "注文ステータスを更新しました"
   end
 
   private
