@@ -11,43 +11,11 @@ body {
 main {
   flex: 1;
 }
-.flash{
-  .notice {
-   background-color: #ff8c00;
-   color: #fff;
-   text-align: center;
- }
-}
-.navbar-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
 .midashi{
    background-color: #dcdcdc;
 }
 .nav-link{
     outline:2px solid #ff7f00;
 }
-<<<<<<< HEAD
-.list{
-    border:1px solid black;
-}
-.space{
-    width: 100px;
-}
-.space1{
-    width: 130px;
-}
-.space2{
-    width: 150px;
-}
-.search{
-    text-align: right;
-    margin-right: 30px;
-    margin-bottom: 10px;
-}
-
-
-=======
->>>>>>> main
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
