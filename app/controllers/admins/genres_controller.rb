@@ -4,6 +4,7 @@ class Admins::GenresController < ApplicationController
   protect_from_forgery
 
   def index
+<<<<<<< HEAD
     @genres=Genre.all
     @genre=Genre.new
   end
@@ -28,12 +29,10 @@ class Admins::GenresController < ApplicationController
     else
       render "edit"
     end
+=======
   end
 
-  private
-
-  def genre_params
-    params.require(:genre).permit(:genre_name)
+  def edit
+>>>>>>> main
   end
-
 end

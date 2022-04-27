@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+<<<<<<< HEAD
   has_one_attached:item_image
 
   belongs_to :genre
@@ -23,3 +24,6 @@ class Item < ApplicationRecord
     (price * 1.1).floor
   end
 end
+=======
+end
+>>>>>>> main

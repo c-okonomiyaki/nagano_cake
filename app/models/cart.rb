@@ -1,4 +1,5 @@
 class Cart < ApplicationRecord
+<<<<<<< HEAD
   belongs_to :customer
   belongs_to :item
 
@@ -7,4 +8,6 @@ class Cart < ApplicationRecord
   def subtotal
     item.with_tax_price * quantity
   end
+=======
+>>>>>>> main
 end

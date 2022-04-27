@@ -4,11 +4,10 @@ class Customers::CustomersController < ApplicationController
   protect_from_forgery with: :exception
 
   def show
-    @customer = current_customer
-
   end
 
   def edit
+<<<<<<< HEAD
     @customer = current_customer
   end
 
@@ -30,12 +29,10 @@ class Customers::CustomersController < ApplicationController
     @customer.update(is_deleted: true)
     reset_session
     redirect_to root_path ,notice: "アカウントを削除しました"
+=======
   end
 
-  private
-
-  def customer_params
-    params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:postcode,:address,:call_number,:email)
+  def withdrawal
+>>>>>>> main
   end
-
 end

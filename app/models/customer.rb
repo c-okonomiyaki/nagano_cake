@@ -3,6 +3,7 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+<<<<<<< HEAD
 
    with_options presence: true do
     validates :first_name
@@ -28,4 +29,6 @@ class Customer < ApplicationRecord
     super && (is_deleted == false)
   end
 
+=======
+>>>>>>> main
 end

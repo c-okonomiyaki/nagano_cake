@@ -3,10 +3,10 @@ class Customers::ItemsController < ApplicationController
   protect_from_forgery with: :exception
 
   def index
-    @items = Item.where(is_active: true).page(params[:page]).per(8)
   end
 
   def show
+<<<<<<< HEAD
     @item = Item.find(params[:id])
     @cart = Cart.new
   end
@@ -30,5 +30,7 @@ class Customers::ItemsController < ApplicationController
 
   def cart_params
       params.require(:cart).permit(:item_id, :quantity)
+=======
+>>>>>>> main
   end
 end

@@ -12,24 +12,22 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :orders,only:[:index,:show,:update]
     resources :genres,only:[:index,:create,:edit,:update]
+<<<<<<< HEAD
     get 'admins' => 'homes#top'
+=======
+    resources :homes,only:[:top]
+>>>>>>> main
     resources :items,only:[:index,:new,:create,:show,:edit,:update]
     resources :order_details,only:[:update]
     resources :customers,only:[:index,:show,:edit,:update]
   end
 
   scope module: :customers do
-    resource :customers,only:[:show]
-    get 'customers/customers/edit' => 'customers#edit'
-    patch 'customers/customers/:id' => 'customers#update',as: :mypage
-    get 'customers/withdrawal' => 'customers#withdrawal'
-    patch 'customers/out/:id' => 'customers#out',as: :out
-
+    resource :customers,only:[:show,:edit,:update,:withdrawal,:out]
     root :to => "homes#top"
     get "about"=>"homes#about"
-    delete 'carts/all_destory' => 'carts#all_destory',as: :all_destory
-    post 'carts/all_destory' => 'carts#all_destory'
     resources :items,only:[:index,:show]
+<<<<<<< HEAD
     resources :carts,only:[:index,:update,:create,:destroy]
 
     get 'orders/confirm' => 'orders#confirm'
@@ -37,6 +35,10 @@ Rails.application.routes.draw do
     get 'orders/thanx' => 'orders#thanx'
     resources :orders,only:[:new,:create,:index,:show]
 
+=======
+    resources :carts,only:[:index,:update,:create,:destroy,:all_destory]
+    resources :orders,only:[:new,:confirm,:create,:thanx,:index,:show]
+>>>>>>> main
     resources :deliveries,only:[:index,:create,:destroy,:edit,:update]
   end
 

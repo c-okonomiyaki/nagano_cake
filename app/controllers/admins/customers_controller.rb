@@ -4,16 +4,14 @@ class Admins::CustomersController < ApplicationController
   protect_from_forgery with: :exception
 
   def index
-    @customers=Customer.page(params[:page])
   end
 
   def show
-    @customer=Customer.find(params[:id])
   end
 
   def edit
-    @customer=Customer.find(params[:id])
   end
+<<<<<<< HEAD
 
   def update
     @customer=Customer.find(params[:id])
@@ -31,4 +29,6 @@ class Admins::CustomersController < ApplicationController
     :postcode,:address,:call_number,:email,:is_deleted)
   end
 
+=======
+>>>>>>> main
 end

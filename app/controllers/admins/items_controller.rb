@@ -4,14 +4,13 @@ class Admins::ItemsController < ApplicationController
   protect_from_forgery with: :exception
 
   def index
-    @items=Item.page(params[:page])
   end
 
   def show
-    @item=Item.find(params[:id])
   end
 
   def edit
+<<<<<<< HEAD
     @item=Item.find(params[:id])
     @genres=Genre.all
   end
@@ -45,5 +44,10 @@ class Admins::ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:item_image,:item_name,:price,:introduction,:is_active,:genre_id)
+=======
+  end
+
+  def new
+>>>>>>> main
   end
 end
